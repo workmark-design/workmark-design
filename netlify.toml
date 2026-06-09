@@ -1,0 +1,21 @@
+# Netlify configuration
+#
+# The agency site is plain static HTML in the repo root, so there's no build
+# step. Functions live in netlify/functions and are bundled with esbuild (the
+# default), which is required for the ESM `import` + npm dependency used by
+# generate-promo-background.js.
+#
+# generate-promo-background.js is a BACKGROUND function (the "-background"
+# filename suffix is what tells Netlify to run it async, up to 15 min, and
+# return 202 immediately). Don't rename away the suffix.
+#
+# Set these in Site settings → Environment (server-side only — never expose the
+# Supabase service key or Anthropic key to the browser):
+#   HF_CREDENTIALS, ANTHROPIC_API_KEY, SUPABASE_URL, SUPABASE_SERVICE_KEY
+
+[build]
+  publish = "."
+  functions = "netlify/functions"
+
+[functions]
+  node_bundler = "esbuild"

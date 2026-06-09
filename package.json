@@ -1,0 +1,13 @@
+{
+  "name": "workmark-design",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Workmark Design agency site + Netlify functions (promo video generation).",
+  "type": "module",
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "@higgsfield/client": "^2.0.0"
+  }
+}
